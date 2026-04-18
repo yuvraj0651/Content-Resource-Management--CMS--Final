@@ -1,3 +1,5 @@
+# 🧠 BrainCMS – Modular PHP Content Management System
+
 <p align="center">
   <img src="https://via.placeholder.com/1200x400.png?text=BrainCMS+Powerful+CMS+System" />
 </p>
