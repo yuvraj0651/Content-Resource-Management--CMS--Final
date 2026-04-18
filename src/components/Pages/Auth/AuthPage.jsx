@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser, registerUser } from "../../Services/Auth/AuthThunk";
 import toast from "react-hot-toast";
@@ -7,7 +7,6 @@ import { useNavigate } from "react-router";
 const AuthPage = () => {
     const [activeTab, setActiveTab] = useState("login");
     const [loginData, setLoginData] = useState({
-        fullName: "",
         email: "",
         password: "",
     });
@@ -30,14 +29,26 @@ const AuthPage = () => {
 
     const handleLoginChange = (e) => {
         const { name, value } = e.target;
-        setLoginData({ ...loginData, [name]: value });
-        setLoginErrors({ ...loginErrors, [name]: "" });
+        setLoginData((prev) => ({
+            ...prev,
+            [name]: value
+        }));
+        setLoginErrors((prev) => ({
+            ...prev,
+            [name]: ""
+        }));
     };
 
     const handleRegisterChange = (e) => {
         const { name, value } = e.target;
-        setRegisterData({ ...registerData, [name]: value });
-        setRegisterErrors({ ...registerErrors, [name]: "" });
+        setRegisterData((prev) => ({
+            ...prev,
+            [name]: value
+        }));
+        setRegisterErrors((prev) => ({
+            ...prev,
+            [name]: ""
+        }));
     };
 
     const toggleLoginPassword = () => {
@@ -120,15 +131,12 @@ const AuthPage = () => {
             toast.success("User Logged In Successfully");
 
             setLoginData({
-                fullName: "",
                 email: "",
                 password: "",
             });
             setLoginErrors({});
 
-            setTimeout(() => {
-                navigate("/dashboard");
-            }, 500);
+            navigate("/dashboard");
         }).catch((error) => {
             toast.dismiss(loadingToast);
             toast.error(error);
@@ -224,7 +232,11 @@ const AuthPage = () => {
                     {/* Tabs */}
                     <div className="flex mb-6 bg-white/10 rounded-xl p-1">
                         <button
-                            onClick={() => setActiveTab("login")}
+                            onClick={() => {
+                                setActiveTab("login");
+                                setLoginErrors({});
+                                setRegisterErrors({});
+                            }}
                             className={`flex-1 py-2 rounded-lg text-sm font-medium transition ${activeTab === "login"
                                 ? "bg-white text-black shadow"
                                 : "text-gray-400"
@@ -234,7 +246,11 @@ const AuthPage = () => {
                         </button>
 
                         <button
-                            onClick={() => setActiveTab("register")}
+                            onClick={() => {
+                                setActiveTab("register");
+                                setLoginErrors({});
+                                setRegisterErrors({});
+                            }}
                             className={`flex-1 py-2 rounded-lg text-sm font-medium transition ${activeTab === "register"
                                 ? "bg-white text-black shadow"
                                 : "text-gray-400"
@@ -253,19 +269,16 @@ const AuthPage = () => {
                                 <input
                                     type="text"
                                     name="fullName"
-                                    value={activeTab === "login" ? loginData.fullName : registerData.fullName}
-                                    onChange={activeTab === "login" ? handleLoginChange : handleRegisterChange}
+                                    value={registerData.fullName}
+                                    onChange={handleRegisterChange}
                                     className="w-full mt-2 px-4 py-2.5 rounded-xl bg-white/10 text-white border border-white/10 focus:outline-none focus:ring-2 focus:ring-white/30"
                                     placeholder="Enter your name"
                                 />
                                 {
-                                    activeTab === "login"
-                                        ? loginErrors.fullName && (
-                                            <p className="pl-2 text-[0.9rem] font-medium text-red-600">*{loginErrors.fullName}</p>
-                                        )
-                                        : registerErrors.fullName && (
-                                            <p className="pl-2 text-[0.9rem] font-medium text-red-600">*{registerErrors.fullName}</p>
-                                        )
+                                    activeTab === "register" &&
+                                    registerErrors.fullName && (
+                                        <p className="pl-2 text-[0.9rem] font-medium text-red-600">*{registerErrors.fullName}</p>
+                                    )
                                 }
                             </div>
                         )}
@@ -367,7 +380,7 @@ const AuthPage = () => {
                             className="w-full bg-white text-black py-2.5 rounded-xl font-semibold hover:bg-gray-200 transition">
                             {activeTab === "login"
                                 ? loginLoading ? "Logging You In..." : "Login"
-                                : registerLoading ? "Creating Your Account" : "Create Account"}
+                                : registerLoading ? "Creating Your Account..." : "Create Account"}
                         </button>
                     </form>
 
@@ -377,9 +390,11 @@ const AuthPage = () => {
                             ? "Don't have an account?"
                             : "Already have an account?"}
                         <span
-                            onClick={() =>
-                                setActiveTab(activeTab === "login" ? "register" : "login")
-                            }
+                            onClick={() => {
+                                setActiveTab(activeTab === "login" ? "register" : "login");
+                                setLoginErrors({});
+                                setRegisterErrors({});
+                            }}
                             className="ml-1 text-white cursor-pointer hover:underline"
                         >
                             {activeTab === "login" ? "Register" : "Login"}
