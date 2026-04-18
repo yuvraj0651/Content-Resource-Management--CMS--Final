@@ -74,3 +74,5 @@ It is built for scalability, extensibility, and real-world CMS usage.
 ### 1️⃣ Clone Repo
 ```bash
 git clone https://github.com/yuvraj0651/Braincms-app.git
+npm install
+npm run dev
