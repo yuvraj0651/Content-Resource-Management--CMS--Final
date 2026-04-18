@@ -1,4 +1,4 @@
-# 🧠 BrainCMS – Modular PHP Content Management System
+# 🧠 BrainCMS – Content Management System
 ![Brain-CMS](https://github.com/user-attachments/assets/c9bd2ec1-c8e6-4100-afef-8f7ee9ae38bd)
 
 <p align="center">
