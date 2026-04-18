@@ -2,10 +2,6 @@
 ![Brain-CMS](https://github.com/user-attachments/assets/c9bd2ec1-c8e6-4100-afef-8f7ee9ae38bd)
 
 <p align="center">
-  <img src="https://via.placeholder.com/1200x400.png?text=BrainCMS+Powerful+CMS+System" />
-</p>
-
-<p align="center">
   <b>🚀 A Modular, PHP-Based Content Management System with Admin Panel, Addons & Template Engine</b>
 </p>
 
