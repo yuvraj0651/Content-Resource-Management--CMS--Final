@@ -32,7 +32,7 @@ It is built for scalability, extensibility, and real-world CMS usage.
 
 ## 🌐 Live Demo
 
-[![Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-Click%20Here-success?style=for-the-badge)](https://brain-cms-app.netlify.app/auth)
+[![Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-Click%20Here-success?style=for-the-badge)](https://brain-cms-app.netlify.app/)
 
 ---
 
