@@ -1,0 +1,203 @@
+{
+  "auth": [
+    {
+      "id": "0811",
+      "fullName": "Yuvraj Ganshi",
+      "email": "yuvrajganshi@gmail.com",
+      "password": "Aceinfo@2531",
+      "confirmPass": "Aceinfo@2531",
+      "status": "active",
+      "role": "admin",
+      "createdAt": "2026-04-15T10:30:00.000Z",
+      "techRole": "frontend"
+    },
+    {
+      "id": "e5d7",
+      "fullName": "Balraj Kumar",
+      "email": "balrajkumar@gmail.com",
+      "password": "Aceinfo@12345",
+      "confirmPass": "Aceinfo@12345",
+      "status": "active",
+      "role": "user",
+      "createdAt": "2026-04-15T17:47:16.227Z",
+      "techRole": "node"
+    },
+    {
+      "id": "0faf",
+      "fullName": "Mohan Kumar",
+      "email": "mohankumar@gmail.com",
+      "status": "active",
+      "role": "user",
+      "techRole": "frontend",
+      "password": "Aceinfo@123",
+      "createdAt": "2026-04-15T19:18:38.546Z"
+    }
+  ],
+  "customers": [
+    {
+      "id": "eec9",
+      "fullName": "Ramesh Kumar",
+      "email": "rameshkumar@gamil.com",
+      "companyName": "softwareNation Sector-26 , Mohali",
+      "phone": "9384563742",
+      "type": "premium",
+      "status": "active",
+      "address": "Sector-26 , Mohali",
+      "assignedTo": 1
+    }
+  ],
+  "leads": [
+    {
+      "id": "1",
+      "fullName": "Priya Verma",
+      "email": "priya.verma@gmail.com",
+      "phone": "9123456780",
+      "companyName": "GrowFast Solutions",
+      "dealValue": "$3200",
+      "stage": "New",
+      "leadSource": "LinkedIn",
+      "description": "Looking for enterprise CRM with analytics"
+    },
+    {
+      "id": "2",
+      "fullName": "Rohit Mehta",
+      "email": "rohit.mehta@gmail.com",
+      "phone": "9988776655",
+      "companyName": "Mehta Enterprises",
+      "dealValue": "$800",
+      "stage": "Qualified",
+      "leadSource": "Referral",
+      "description": "Needs basic CRM features with automation"
+    },
+    {
+      "id": "3",
+      "fullName": "Neha Kapoor",
+      "email": "neha.kapoor@gmail.com",
+      "phone": "9871234567",
+      "companyName": "Kapoor Designs",
+      "dealValue": "$2100",
+      "stage": "Closed",
+      "leadSource": "Ads",
+      "description": "Converted lead - wants onboarding support"
+    },
+    {
+      "id": "4",
+      "fullName": "Arjun Singh",
+      "email": "arjun.singh@gmail.com",
+      "phone": "9012345678",
+      "companyName": "Singh Logistics",
+      "dealValue": "$5000",
+      "stage": "Contacted",
+      "leadSource": "Email Campaign",
+      "description": "Interested in logistics CRM customization"
+    }
+  ],
+  "deals": [
+    {
+      "id": "b0ce",
+      "dealName": "Aman Sharma",
+      "companyName": "GrowFast Solutions",
+      "email": "aman.sharma@gmail.com",
+      "value": "$1500",
+      "stage": "Prospect",
+      "assignedTo": "Mary Mae",
+      "dealValue": "1200",
+      "priority": "Low",
+      "date": "",
+      "description": ""
+    },
+    {
+      "id": "d0c0",
+      "dealName": "Neha Kapoor",
+      "companyName": "Mehta Enterprises",
+      "email": "neha.kapoor@gmail.com",
+      "value": "$2100",
+      "stage": "Prospect",
+      "assignedTo": "",
+      "dealValue": "",
+      "priority": "Medium",
+      "date": "",
+      "description": ""
+    },
+    {
+      "id": "7d8a",
+      "dealName": "Neha Kapoor",
+      "companyName": "Kapoor Designs",
+      "email": "neha.kapoor@gmail.com",
+      "value": "$2100",
+      "stage": "Negotiation",
+      "assignedTo": "",
+      "dealValue": "",
+      "priority": "High",
+      "date": "",
+      "description": ""
+    },
+    {
+      "id": "f595",
+      "dealName": "CRM Subscription Deal",
+      "companyName": "TechNova Pvt Ltd",
+      "dealValue": "2500",
+      "stage": "Won",
+      "priority": "High",
+      "assignedTo": "John Doe",
+      "date": "2026-04-25",
+      "description": "Client interested in full CRM package with analytics and automation.",
+      "status": "active"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "a6a0",
+      "title": "Follow up with client",
+      "assignedTo": "Amit Sharma",
+      "priority": "High",
+      "status": "in-progress",
+      "date": "2026-04-18",
+      "description": "Call client regarding CRM demo feedback"
+    }
+  ],
+  "dashboard": {
+    "stats": {
+      "totalCustomers": 0,
+      "totalLeads": 0,
+      "totalDeals": 0,
+      "totalTasks": 0,
+      "revenue": 0,
+      "conversionRate": 0
+    },
+    "revenue": [
+      {
+        "month": "Jan",
+        "value": 0
+      },
+      {
+        "month": "Feb",
+        "value": 0
+      },
+      {
+        "month": "Mar",
+        "value": 0
+      }
+    ],
+    "userGrowth": [
+      {
+        "month": "Jan",
+        "users": 1
+      },
+      {
+        "month": "Feb",
+        "users": 1
+      },
+      {
+        "month": "Mar",
+        "users": 1
+      }
+    ],
+    "leadStats": {
+      "new": 0,
+      "contacted": 0,
+      "converted": 0,
+      "lost": 0
+    }
+  }
+}
