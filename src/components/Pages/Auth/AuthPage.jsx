@@ -331,10 +331,10 @@ const AuthPage = () => {
                             {
                                 activeTab === "login"
                                     ? loginErrors.password && (
-                                        <p className="pl-2 text-[0.9rem] font-medium text-red-600">*{loginErrors.password}</p>
+                                        <p className="pl-2 text-[0.9rem] font-medium text-red-600">*{loginErrors?.password}</p>
                                     )
                                     : registerErrors.password && (
-                                        <p className="pl-2 text-[0.9rem] font-medium text-red-600">*{registerErrors.password}</p>
+                                        <p className="pl-2 text-[0.9rem] font-medium text-red-600">*{registerErrors?.password}</p>
                                     )
                             }
                         </div>
@@ -360,7 +360,7 @@ const AuthPage = () => {
                                 </div>
                                 {
                                     registerErrors.confirmPass && (
-                                        <p className="pl-2 text-[0.9rem] font-medium text-red-600">*{registerErrors.confirmPass}</p>
+                                        <p className="pl-2 text-[0.9rem] font-medium text-red-600">*{registerErrors?.confirmPass}</p>
                                     )
                                 }
                             </div>

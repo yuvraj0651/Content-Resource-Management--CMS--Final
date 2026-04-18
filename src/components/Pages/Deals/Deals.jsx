@@ -115,7 +115,7 @@ const Deals = () => {
                             <p className="text-gray-500">No deals found to display...</p>
                         </div>
                     ) : (
-                        groupedDeals.map((column) => (
+                        groupedDeals?.map((column) => (
                             <div
                                 key={column.stage}
                                 onDragOver={(e) => {

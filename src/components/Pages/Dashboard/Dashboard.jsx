@@ -132,7 +132,7 @@ const Dashboard = () => {
             {/* KPI CARDS */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
-                {stats.map((item, i) => (
+                {stats?.map((item, i) => (
                     <div
                         key={i}
                         className="bg-white p-4 rounded-xl shadow-sm border flex flex-col gap-2"

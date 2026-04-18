@@ -117,7 +117,7 @@ const Leads = () => {
                             <p className="text-gray-500">No leads found to display...</p>
                         </div>
                     ) : (
-                        groupedLeads.map((column) => (
+                        groupedLeads?.map((column) => (
                             <div
                                 key={column.stage}
                                 onDragOver={(e) => {
