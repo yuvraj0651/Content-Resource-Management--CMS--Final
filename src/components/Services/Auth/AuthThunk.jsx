@@ -16,12 +16,14 @@ export const initialState = {
     error: null,
 };
 
+const BASE_URL = "https://content-resource-management-cms-final.onrender.com/api";
+
 // login User
 export const loginUser = createAsyncThunk(
     "auth/loginUser",
     async ({ email, password }, { rejectWithValue }) => {
         try {
-            const userResponse = await fetch("http://localhost:5000/auth");
+            const userResponse = await fetch(`${BASE_URL}/auth`);
             if (!userResponse.ok) {
                 throw new Error("something went wrong while logging in user");
             };
@@ -52,7 +54,7 @@ export const registerUser = createAsyncThunk(
             createdAt: new Date().toISOString(),
         };
         try {
-            const userResponse = await fetch("http://localhost:5000/auth");
+            const userResponse = await fetch(`${BASE_URL}/auth`);
             if (!userResponse.ok) {
                 throw new Error("something went wrong while fetching users data");
             };
@@ -64,7 +66,7 @@ export const registerUser = createAsyncThunk(
                 throw new Error("User Already Exists");
             };
 
-            const response = await fetch("http://localhost:5000/auth", {
+            const response = await fetch(`${BASE_URL}/auth`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -87,7 +89,7 @@ export const fetchCurrentUser = createAsyncThunk(
     "auth/fetchCurrentUser",
     async (userId, { rejectWithValue }) => {
         try {
-            const response = await fetch(`http://localhost:5000/auth/${userId}`);
+            const response = await fetch(`${BASE_URL}/auth/${userId}`);
             if (!response.ok) {
                 throw new Error("something went wrong while fetching current user data");
             };

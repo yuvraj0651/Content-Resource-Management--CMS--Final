@@ -16,12 +16,14 @@ export const initialState = {
     errors: null,
 };
 
+const BASE_URL = "https://content-resource-management-cms-final.onrender.com/api";
+
 // fetch All Tasks
 export const fetchAllTasks = createAsyncThunk(
     "tasks/fetchAll",
     async (_, { rejectWithValue }) => {
         try {
-            const response = await fetch("http://localhost:5000/tasks");
+            const response = await fetch(`${BASE_URL}/tasks`);
             if (!response.ok) {
                 throw new Error("something went wrong while fetching all tasks data");
             };
@@ -42,7 +44,7 @@ export const createTask = createAsyncThunk(
             status: "active",
         };
         try {
-            const response = await fetch("http://localhost:5000/tasks", {
+            const response = await fetch(`${BASE_URL}/tasks`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -65,7 +67,7 @@ export const deleteTask = createAsyncThunk(
     "tasks/deleteTask",
     async (id, { rejectWithValue }) => {
         try {
-            const response = await fetch(`http://localhost:5000/tasks/${id}`, {
+            const response = await fetch(`${BASE_URL}/tasks/${id}`, {
                 method: "DELETE",
             });
             if (!response.ok) {
@@ -83,7 +85,7 @@ export const updateTask = createAsyncThunk(
     "tasks/updateTask",
     async ({ id, updatedTask }, { rejectWithValue }) => {
         try {
-            const response = await fetch(`http://localhost:5000/tasks/${id}`, {
+            const response = await fetch(`${BASE_URL}/tasks/${id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -106,7 +108,7 @@ export const updateTaskStatus = createAsyncThunk(
     "tasks/updateTaskStatus",
     async ({ id, updatedTaskStatus }, { rejectWithValue }) => {
         try {
-            const response = await fetch(`http://localhost:5000/tasks/${id}`, {
+            const response = await fetch(`${BASE_URL}/tasks/${id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -129,7 +131,7 @@ export const fetchCurrentTask = createAsyncThunk(
     "tasks/fetchCurrent",
     async (taskId, { rejectWithValue }) => {
         try {
-            const response = await fetch(`http://localhost:5000/tasks/${taskId}`);
+            const response = await fetch(`${BASE_URL}/tasks/${taskId}`);
             if (!response.ok) {
                 throw new Error("something went wrong while fetching current tasks");
             };
@@ -146,7 +148,7 @@ export const MarkTaskComplete = createAsyncThunk(
     "tasks/markComplete",
     async (taskId, { rejectWithValue }) => {
         try {
-            const response = await fetch(`http://localhost:5000/tasks/${taskId}`, {
+            const response = await fetch(`${BASE_URL}/tasks/${taskId}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -169,7 +171,7 @@ export const assignTask = createAsyncThunk(
     "tasks/assignTask",
     async ({ id, userId }, { rejectWithValue }) => {
         try {
-            const response = await fetch(`http://localhost:5000/tasks/${id}`, {
+            const response = await fetch(`${BASE_URL}/tasks/${id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -199,7 +201,7 @@ export const bulkDeleteTasks = createAsyncThunk(
         try {
             const responses = await Promise.all(
                 taskIds.map((id) =>
-                    fetch(`http://localhost:5000/tasks/${id}`, {
+                    fetch(`${BASE_URL}/tasks/${id}`, {
                         method: "DELETE",
                     })
                 )

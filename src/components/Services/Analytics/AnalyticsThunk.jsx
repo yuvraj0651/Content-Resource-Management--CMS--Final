@@ -13,12 +13,14 @@ export const initialState = {
     error: null,
 };
 
+const BASE_URL = "https://content-resource-management-cms-final.onrender.com/api";
+
 // Fetch All Stats
 export const fetchAllStats = createAsyncThunk(
     "stats/fetchAll",
     async (_, { rejectWithValue }) => {
         try {
-            const response = await fetch("http://localhost:5000/dashboard");
+            const response = await fetch(`${BASE_URL}/dashboard`);
             if (!response.ok) {
                 throw new Error("Failed to fetch dashboard stats");
             };
@@ -35,7 +37,7 @@ export const fetchAllRevenueCharts = createAsyncThunk(
     "charts/fetchAll",
     async (_, { rejectWithValue }) => {
         try {
-            const response = await fetch("http://localhost:5000/dashboard");
+            const response = await fetch(`${BASE_URL}dashboard`);
             if (!response.ok) {
                 throw new Error("Failed to fetch dashboard revenue");
             };
@@ -52,7 +54,7 @@ export const fetchAllUserGrowthData = createAsyncThunk(
     "userGrowth/fetchAll",
     async (_, { rejectWithValue }) => {
         try {
-            const response = await fetch("http://localhost:5000/dashboard");
+            const response = await fetch(`${BASE_URL}/dashboard`);
             if (!response.ok) {
                 throw new Error("Failed to fetch dashboard user growth");
             };
@@ -69,7 +71,7 @@ export const fetchAllLeadConversionStats = createAsyncThunk(
     "leadConversionStats/fetchAll",
     async (_, { rejectWithValue }) => {
         try {
-            const response = await fetch("http://localhost:5000/dashboard");
+            const response = await fetch(`${BASE_URL}/dashboard`);
             if (!response.ok) {
                 throw new Error("Failed to fetch dashboard Lead Conversion Stats");
             };

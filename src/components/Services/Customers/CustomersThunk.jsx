@@ -15,12 +15,14 @@ export const initialState = {
     errors: null,
 };
 
+const BASE_URL = "https://content-resource-management-cms-final.onrender.com/api";
+
 // fetch All Customers
 export const fetchAllCustomers = createAsyncThunk(
     "customers/fetchAll",
     async (_, { rejectWithValue }) => {
         try {
-            const response = await fetch("http://localhost:5000/customers");
+            const response = await fetch(`${BASE_URL}/customers`);
             if (!response.ok) {
                 throw new Error("something went wrong while fetching all customers data");
             };
@@ -41,7 +43,7 @@ export const AddCustomer = createAsyncThunk(
             assignedTo: 1,
         };
         try {
-            const response = await fetch("http://localhost:5000/customers", {
+            const response = await fetch(`${BASE_URL}/customers`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -64,7 +66,7 @@ export const deleteCustomer = createAsyncThunk(
     "customers/deleteCustomer",
     async (id, { rejectWithValue }) => {
         try {
-            const response = await fetch(`http://localhost:5000/customers/${id}`, {
+            const response = await fetch(`${BASE_URL}/customers/${id}`, {
                 method: "DELETE",
             });
             if (!response.ok) {
@@ -82,7 +84,7 @@ export const updateCustomer = createAsyncThunk(
     "customers/updateCustomer",
     async ({ id, updatedCustomer }, { rejectWithValue }) => {
         try {
-            const response = await fetch(`http://localhost:5000/customers/${id}`, {
+            const response = await fetch(`${BASE_URL}/customers/${id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -122,7 +124,7 @@ export const assignCustomerToUser = createAsyncThunk(
     "customers/assignCustomer",
     async ({ customerId, userId }, { rejectWithValue }) => {
         try {
-            const response = await fetch(`http://localhost:5000/customers/${customerId}`, {
+            const response = await fetch(`${BASE_URL}/customers/${customerId}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -151,7 +153,7 @@ export const bulkDeleteCustomers = createAsyncThunk(
         try {
             const responses = await Promise.all(
                 customerIds.map((id) =>
-                    fetch(`http://localhost:5000/customers/${id}`, {
+                    fetch(`${BASE_URL}/customers/${id}`, {
                         method: "DELETE",
                     })
                 )
@@ -173,7 +175,7 @@ export const updateCustomerStatus = createAsyncThunk(
     "customers/updateStatus",
     async ({ customerId, updatedStatus }, { rejectWithValue }) => {
         try {
-            const response = await fetch(`http://localhost:5000/customers/${customerId}`, {
+            const response = await fetch(`${BASE_URL}/customers/${customerId}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -196,7 +198,7 @@ export const updateCustomerType = createAsyncThunk(
     "customers/updateType",
     async ({ customerId, updatedType }, { rejectWithValue }) => {
         try {
-            const response = await fetch(`http://localhost:5000/customers/${customerId}`, {
+            const response = await fetch(`${BASE_URL}/customers/${customerId}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",

@@ -14,12 +14,14 @@ export const initialState = {
     errors: null,
 };
 
+const BASE_URL = "https://content-resource-management-cms-final.onrender.com/api";
+
 // fetch All Leads
 export const fetchAllLeads = createAsyncThunk(
     "leads/fetchAll",
     async (_, { rejectWithValue }) => {
         try {
-            const response = await fetch("http://localhost:5000/leads");
+            const response = await fetch(`${BASE_URL}/leads`);
             if (!response.ok) {
                 throw new Error("something went wrong while fetching all leads data");
             };
@@ -40,7 +42,7 @@ export const createLead = createAsyncThunk(
             leadStatus: "active",
         };
         try {
-            const response = await fetch("http://localhost:5000/leads", {
+            const response = await fetch(`${BASE_URL}/leads`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -63,7 +65,7 @@ export const deleteLead = createAsyncThunk(
     "leads/deleteLead",
     async (id, { rejectWithValue }) => {
         try {
-            const response = await fetch(`http://localhost:5000/leads/${id}`, {
+            const response = await fetch(`${BASE_URL}/leads/${id}`, {
                 method: "DELETE",
             });
             if (!response.ok) {
@@ -81,7 +83,7 @@ export const updateLead = createAsyncThunk(
     "leads/updateLead",
     async ({ id, updatedLead }, { rejectWithValue }) => {
         try {
-            const response = await fetch(`http://localhost:5000/leads/${id}`, {
+            const response = await fetch(`${BASE_URL}/leads/${id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -104,7 +106,7 @@ export const updateLeadStatus = createAsyncThunk(
     "leads/updateLeadStatus",
     async ({ id, updatedLeadStatus }, { rejectWithValue }) => {
         try {
-            const response = await fetch(`http://localhost:5000/leads/${id}`, {
+            const response = await fetch(`${BASE_URL}/leads/${id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -127,7 +129,7 @@ export const fetchCurrentLead = createAsyncThunk(
     "leads/fetchCurrent",
     async (leadId, { rejectWithValue }) => {
         try {
-            const response = await fetch(`http://localhost:5000/leads/${leadId}`);
+            const response = await fetch(`${BASE_URL}/leads/${leadId}`);
             if (!response.ok) {
                 throw new Error("something went wrong while fetching current lead");
             };
@@ -150,7 +152,7 @@ export const convertLeadToDeal = createAsyncThunk(
                 "Closed": "Won",
             };
 
-            const dealResponse = await fetch("http://localhost:5000/deals", {
+            const dealResponse = await fetch(`${BASE_URL}/deals`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -171,7 +173,7 @@ export const convertLeadToDeal = createAsyncThunk(
 
             const newDeal = await dealResponse.json();
 
-            const deleteResponse = await fetch(`http://localhost:5000/leads/${lead.id}`, {
+            const deleteResponse = await fetch(`${BASE_URL}/leads/${lead.id}`, {
                 method: "DELETE",
             });
 
@@ -194,7 +196,7 @@ export const bulkDeleteLeads = createAsyncThunk(
         try {
             const responses = await Promise.all(
                 leadIds.map((ids) =>
-                    fetch(`http://localhost:5000/leads/${ids}`, {
+                    fetch(`${BASE_URL}/leads/${ids}`, {
                         method: "DELETE",
                     })
                 )

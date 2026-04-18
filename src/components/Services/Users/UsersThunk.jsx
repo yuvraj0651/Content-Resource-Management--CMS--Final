@@ -13,12 +13,14 @@ export const initialState = {
     errors: null,
 };
 
+const BASE_URL = "https://content-resource-management-cms-final.onrender.com/api";
+
 // fetch All Users
 export const fetchAllUsers = createAsyncThunk(
     "users/fetchAll",
     async (_, { rejectWithValue }) => {
         try {
-            const response = await fetch("http://localhost:5000/auth");
+            const response = await fetch(`${BASE_URL}/auth`);
             if (!response.ok) {
                 throw new Error("something went wrong while fetching all users data");
             };
@@ -35,7 +37,7 @@ export const AddUser = createAsyncThunk(
     "users/addUser",
     async (newUser, { rejectWithValue }) => {
         try {
-            const response = await fetch("http://localhost:5000/auth", {
+            const response = await fetch(`${BASE_URL}/auth`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -58,7 +60,7 @@ export const deleteUser = createAsyncThunk(
     "users/deleteUser",
     async (id, { rejectWithValue }) => {
         try {
-            const response = await fetch(`http://localhost:5000/auth/${id}`, {
+            const response = await fetch(`${BASE_URL}/auth/${id}`, {
                 method: "DELETE",
             });
             if (!response.ok) {
@@ -76,7 +78,7 @@ export const updateUser = createAsyncThunk(
     "users/updateUser",
     async ({ id, updatedUser }, { rejectWithValue }) => {
         try {
-            const response = await fetch(`http://localhost:5000/auth/${id}`, {
+            const response = await fetch(`${BASE_URL}/auth/${id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -99,7 +101,7 @@ export const updateUserStatus = createAsyncThunk(
     "users/updateUserStatus",
     async ({ id, updatedStatus }, { rejectWithValue }) => {
         try {
-            const response = await fetch(`http://localhost:5000/auth/${id}`, {
+            const response = await fetch(`${BASE_URL}/auth/${id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -122,7 +124,7 @@ export const updateUserRole = createAsyncThunk(
     "users/updateUserRole",
     async ({ id, updatedRole }, { rejectWithValue }) => {
         try {
-            const response = await fetch(`http://localhost:5000/auth/${id}`, {
+            const response = await fetch(`${BASE_URL}/auth/${id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -147,7 +149,7 @@ export const bulkDeleteUsers = createAsyncThunk(
         try {
             const responses = await Promise.all(
                 userIds.map((ids) => 
-                    fetch(`http://localhost:5000/auth/${ids}`, {
+                    fetch(`${BASE_URL}/auth/${ids}`, {
                         method: "DELETE",
                     })
                 )
