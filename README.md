@@ -1,16 +1,48 @@
-# React + Vite
+# 🧠 BrainCMS App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+  <img src="https://via.placeholder.com/1200x400.png?text=BrainCMS+Modern+CMS+Platform" alt="BrainCMS Banner"/>
+</p>
 
-Currently, two official plugins are available:
+<p align="center">
+  <b>A Modern, Scalable & Modular Content Management System (CMS)</b><br/>
+  Built for flexibility, performance, and production-level applications.
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🚀 Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**BrainCMS App** is a powerful and scalable Content Management System designed to manage dynamic web content with ease.  
+It provides a structured backend system for handling users, roles, content, and system modules in a clean and maintainable architecture.
 
-## Expanding the ESLint configuration
+This project is built with a SaaS mindset — modular, extendable, and production-ready.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ✨ Key Features
+
+- 🔐 Secure Authentication System (Login / Register)
+- 👥 Role-Based Access Control (Admin / User / Custom Roles)
+- 🧩 Modular CMS Architecture
+- 📝 Dynamic Content Management
+- 📊 Admin Dashboard Panel
+- ⚡ Fast & Lightweight Performance
+- 🔄 Easily Extendable System (Plugins/Addons Support)
+- 🌐 API-ready structure for frontend integration
+- 🛠️ Clean folder structure for scalability
+
+---
+
+## 🧱 Tech Stack
+
+- **Frontend:** HTML / CSS / JavaScript (or React if used)
+- **Backend:** PHP / Node.js (based on implementation)
+- **Database:** MySQL
+- **Styling:** Tailwind CSS / Custom CSS
+- **Server:** Apache / XAMPP
+- **Auth:** Session-based / JWT (as implemented)
+
+---
+
+## 📁 Project Structure
